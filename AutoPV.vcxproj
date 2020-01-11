@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>AutoPV</ProjectName>
+    <ProjectGuid>{6D3CA191-008D-4E7F-A4B9-F31DD1CEF837}</ProjectGuid>
+    <RootNamespace>AutoPV</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\..;$(SolutionDir)\..\..;$(SolutionDir)\skse64;$(SolutionDir)\jsoncpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_EXAMPLE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>common/IPrefix.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>"$(SolutionDir)install_dll.bat" "$(TargetPath)"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Installing DLL...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\..;$(SolutionDir)\..\..;$(SolutionDir)\skse64;$(SolutionDir)\jsoncpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_EXAMPLE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>common/IPrefix.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>"$(SolutionDir)install_dll.bat" "$(TargetPath)"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Installing DLL...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\skse64\GameAPI.cpp" />
+    <ClCompile Include="..\skse64\GameBSExtraData.cpp" />
+    <ClCompile Include="..\skse64\GameCamera.cpp" />
+    <ClCompile Include="..\skse64\GameData.cpp" />
+    <ClCompile Include="..\skse64\GameEvents.cpp" />
+    <ClCompile Include="..\skse64\GameExtraData.cpp" />
+    <ClCompile Include="..\skse64\GameFormComponents.cpp" />
+    <ClCompile Include="..\skse64\GameForms.cpp" />
+    <ClCompile Include="..\skse64\GameInput.cpp" />
+    <ClCompile Include="..\skse64\GameObjects.cpp" />
+    <ClCompile Include="..\skse64\GameReferences.cpp" />
+    <ClCompile Include="..\skse64\GameRTTI.cpp" />
+    <ClCompile Include="..\skse64\GameSettings.cpp" />
+    <ClCompile Include="..\skse64\GameStreams.cpp" />
+    <ClCompile Include="..\skse64\GameThreads.cpp" />
+    <ClCompile Include="..\skse64\GameTypes.cpp" />
+    <ClCompile Include="..\skse64\GameUtilities.cpp" />
+    <ClCompile Include="..\skse64\HashUtil.cpp" />
+    <ClCompile Include="..\skse64\InputMap.cpp" />
+    <ClCompile Include="..\skse64\NiExtraData.cpp" />
+    <ClCompile Include="..\skse64\NiGeometry.cpp" />
+    <ClCompile Include="..\skse64\NiNodes.cpp" />
+    <ClCompile Include="..\skse64\NiObjects.cpp" />
+    <ClCompile Include="..\skse64\NiProperties.cpp" />
+    <ClCompile Include="..\skse64\NiRTTI.cpp" />
+    <ClCompile Include="..\skse64\NiTypes.cpp" />
+    <ClCompile Include="..\skse64\ObScript.cpp" />
+    <ClCompile Include="..\skse64\PapyrusArgs.cpp" />
+    <ClCompile Include="..\skse64\PapyrusInterfaces.cpp" />
+    <ClCompile Include="..\skse64\PapyrusNativeFunctions.cpp" />
+    <ClCompile Include="..\skse64\PapyrusValue.cpp" />
+    <ClCompile Include="..\skse64\PapyrusVM.cpp" />
+    <ClCompile Include="hooks.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="papyrus.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\skse64\GameAPI.h" />
+    <ClInclude Include="..\skse64\GameBSExtraData.h" />
+    <ClInclude Include="..\skse64\GameCamera.h" />
+    <ClInclude Include="..\skse64\GameData.h" />
+    <ClInclude Include="..\skse64\GameEvents.h" />
+    <ClInclude Include="..\skse64\GameExtraData.h" />
+    <ClInclude Include="..\skse64\GameFormComponents.h" />
+    <ClInclude Include="..\skse64\GameForms.h" />
+    <ClInclude Include="..\skse64\GameInput.h" />
+    <ClInclude Include="..\skse64\GameObjects.h" />
+    <ClInclude Include="..\skse64\GameReferences.h" />
+    <ClInclude Include="..\skse64\GameRTTI.h" />
+    <ClInclude Include="..\skse64\GameSettings.h" />
+    <ClInclude Include="..\skse64\GameStreams.h" />
+    <ClInclude Include="..\skse64\GameThreads.h" />
+    <ClInclude Include="..\skse64\GameTypes.h" />
+    <ClInclude Include="..\skse64\GameUtilities.h" />
+    <ClInclude Include="..\skse64\HashUtil.h" />
+    <ClInclude Include="..\skse64\InputMap.h" />
+    <ClInclude Include="..\skse64\NiExtraData.h" />
+    <ClInclude Include="..\skse64\NiGeometry.h" />
+    <ClInclude Include="..\skse64\NiNodes.h" />
+    <ClInclude Include="..\skse64\NiObjects.h" />
+    <ClInclude Include="..\skse64\NiProperties.h" />
+    <ClInclude Include="..\skse64\NiRTTI.h" />
+    <ClInclude Include="..\skse64\NiTypes.h" />
+    <ClInclude Include="..\skse64\ObScript.h" />
+    <ClInclude Include="..\skse64\PapyrusArgs.h" />
+    <ClInclude Include="..\skse64\PapyrusInterfaces.h" />
+    <ClInclude Include="..\skse64\PapyrusNativeFunctions.h" />
+    <ClInclude Include="..\skse64\PapyrusValue.h" />
+    <ClInclude Include="..\skse64\PapyrusVM.h" />
+    <ClInclude Include="hooks.h" />
+    <ClInclude Include="papyrus.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\common_vc14.vcxproj">
+      <Project>{d4c128a1-73dc-4941-a453-ce55af239ba8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\skse64_common\skse64_common.vcxproj">
+      <Project>{20c6411c-596f-4b85-be4e-8bc91f59d8a6}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,4 @@
+LIBRARY	"AutoPV"
+EXPORTS
+SKSEPlugin_Query
+SKSEPlugin_Load
